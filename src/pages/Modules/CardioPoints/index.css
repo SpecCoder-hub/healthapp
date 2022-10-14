@@ -1,0 +1,27 @@
+
+.lines {
+    flex-basis: 40%;
+    padding: 10px;
+    background-color: hsl(228deg 8% 13%);
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .lines-div {
+    position: absolute;
+    top: 89px;
+    left: 30.9%;
+    right: 49.3%;
+    bottom: 37px;
+    background: rgba(51, 153, 73, 0.216);
+    z-index: 111;
+  }
+  
+  .line-ticks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 12px;
+    color: hsl(180deg 1% 39%);
+    margin: 20px 0 10px;
+  }

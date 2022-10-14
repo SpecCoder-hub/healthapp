@@ -1,0 +1,49 @@
+.main-lines {
+    margin-top: 40px;
+
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+.sub-lines {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 6px;
+    margin-bottom: 10px
+}
+.line1 {
+    width: 200px;
+    background: #5996B2;
+    height: 12px;
+    margin-right: 10px;
+    border-radius: 6px
+}
+.line2 {
+    width: 200px;
+    background: #AABF3C;
+    height: 12px;
+    margin-right: 10px;
+    border-radius: 6px
+}
+
+.line3 {
+    width: 200px;
+    background: #08A698;
+    height: 12px;
+    border-radius: 6px
+}
+
+.line4 {
+    background: #F57478;
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.line5 {
+    background: #00A89E;
+    height: 12px;
+    border-radius: 6px
+}
