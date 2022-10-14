@@ -46,7 +46,7 @@ const Module = (props) => {
         navigate("/signin");
       }, []);
     }
-  });
+  }, []);
 
   const handleMS = (e) => {
     e.preventDefault();

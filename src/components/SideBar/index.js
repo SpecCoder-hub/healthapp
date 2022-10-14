@@ -26,12 +26,7 @@ const SideBar = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!Cookies.get("accessToken")) {
-      console.log("no Token");
-      setTimeout(() => {
-        navigate("/signin")
-      })
-    } else if (Cookies.get("accessToken")) {
+    if (Cookies.get("accessToken")) {
       setUserRole(Cookies.get("role"))
       console.log(userRole)
     }
