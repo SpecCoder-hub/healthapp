@@ -183,7 +183,7 @@ export const MonitorChart = styled.div `
     align-items: center;
     flex-direction: row;
     gap: 20px;
-    // justify-content: space-around;
+    justify-content: space-around;
 
 `
 

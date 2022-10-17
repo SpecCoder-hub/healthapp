@@ -1,13 +1,15 @@
 import React from "react";
 import { AreaChart, Area, Tooltip, ResponsiveContainer } from "recharts";
+import { useStore } from "../../../Context/store";
 
 const BVolChart = ({ data, stroke, stopColor }) => {
+  const {state} = useStore();
   return (
     <ResponsiveContainer height="100%" width="80%">
       <AreaChart
         width={400}
         height={40}
-        data={data}
+        data={state.data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >
         <defs>
@@ -24,6 +26,7 @@ const BVolChart = ({ data, stroke, stopColor }) => {
           stroke="#00a99d"
           fillOpacity={1}
           fill="url(#colorUv)"
+          isAnimationActive={false}
         />
       </AreaChart>
     </ResponsiveContainer>
