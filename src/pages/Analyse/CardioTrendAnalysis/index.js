@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import ECGChart from '../../../components/Charts/LineChart/Ecg'
-import SideBar from '../../../components/SideBar'
-import "./index.css"
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import SideBar from "../../../components/SideBar";
+
+import "./index.css";
 import {
   Main,
   CAnalyseCont,
@@ -24,14 +24,14 @@ import {
   MonitorExt,
   ArchiveFoldCont,
   ReportsFold,
-  ReportsHead
-} from './CardioAnalysisElements'
-import { AiOutlineSelect } from 'react-icons/ai'
-import { CgArrowsExpandRight } from 'react-icons/cg'
-import { BiErrorAlt } from 'react-icons/bi'
-import { BsFillArrowRightCircleFill, BsPen } from 'react-icons/bs'
-import { TbZoomInArea, TbArrowBackUp } from 'react-icons/tb'
-import Cookies from 'js-cookie'
+  ReportsHead,
+} from "./CardioAnalysisElements";
+import { AiOutlineSelect } from "react-icons/ai";
+import { CgArrowsExpandRight } from "react-icons/cg";
+import { BiErrorAlt } from "react-icons/bi";
+import { BsFillArrowRightCircleFill, BsPen } from "react-icons/bs";
+import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
+import Cookies from "js-cookie";
 import { AiOutlineCaretDown } from "react-icons/ai";
 
 import { MdOutlineDelete } from "react-icons/md";
@@ -46,10 +46,16 @@ import {
   Filler,
   Tooltip,
 } from "chart.js";
-import Bottom from '../../../components/Charts/CTA/Bottom'
+import Bottom from "../../../components/Charts/CTA/Bottom";
 import EmptyChart from "../../../components/Charts/CTA/EmptyChart";
 import { LineChart } from "../../../components/Charts/CTA/LineChart";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import {
+  FaArrowAltCircleLeft,
+  FaArrowAltCircleRight,
+  FaMinusCircle,
+  FaPlusCircle,
+} from "react-icons/fa";
+import Upload_Scroll from "../../../components/Upload_Scroll";
 
 // basic configuration of chart js and combine with react-chartjs-2
 ChartJS.register(
@@ -66,60 +72,56 @@ ChartJS.register(
 const CardioAnalysis = (props) => {
   const navigate = useNavigate();
 
-  const [trend, setTrend] = useState(false)
+  const [trend, setTrend] = useState(false);
 
-  useEffect(() => {
-    if (!Cookies.get("accessToken")) {
-      console.log("no Token");
-      setTimeout(() => {
-        navigate("/signin")
-      })
+  // useEffect(() => {
+  //   if (!Cookies.get("accessToken")) {
+  //     console.log("no Token");
+  //     setTimeout(() => {
+  //       navigate("/signin")
+  //     })
 
-    }
-  })
-
-
+  //   }
+  // })
 
   const handleRS = (e) => {
-    e.preventDefault()
-    props.setModule("Reports")
-    navigate('/reports')
-
-  }
+    e.preventDefault();
+    props.setModule("Reports");
+    navigate("/reports");
+  };
   const handleRSaOff = (e) => {
-    e.preventDefault()
-    props.setModule("Main Module")
-    navigate('/')
-  }
-
+    e.preventDefault();
+    props.setModule("Main Module");
+    navigate("/");
+  };
 
   const handleCSa = (e) => {
-    e.preventDefault()
-    props.setModule("Cardio Trend Analysis")
-    props.setCardioStatea(true)
-  }
+    e.preventDefault();
+    props.setModule("Cardio Trend Analysis");
+    props.setCardioStatea(true);
+  };
   const handleCSaOff = (e) => {
-    e.preventDefault()
-    props.setModule("Cardio Module")
-    props.setCardioStatea(false)
-  }
+    e.preventDefault();
+    props.setModule("Cardio Module");
+    props.setCardioStatea(false);
+  };
 
   const handleHrv = () => {
-    navigate('/hrvanalyse')
-  }
+    navigate("/hrvanalyse");
+  };
 
   const handlePCP = () => {
-    navigate('/pcpanalyse')
-  }
+    navigate("/pcpanalyse");
+  };
 
   const goBack = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    window.history.back()
-    props.setModule("Cardio Module")
-  }
+    window.history.back();
+    props.setModule("Cardio Module");
+  };
 
-  props.setModule("Cardio Trend Analyse")
+  props.setModule("Cardio Trend Analyse");
   return (
     <>
       <SideBar
@@ -130,16 +132,29 @@ const CardioAnalysis = (props) => {
         handleRS={handleRS}
         handleRSaOff={handleRSaOff}
       />
+      <Upload_Scroll />
       <Main>
         <CAnalyseCont>
           <NavigationCont>
             <EditCont>
-              <EditorButton><AiOutlineSelect />Select</EditorButton>
-              <EditorButton><BsPen />Annotation</EditorButton>
-              <EditorButton><TbZoomInArea />Zoom</EditorButton>
+              <EditorButton>
+                <AiOutlineSelect />
+                Select
+              </EditorButton>
+              <EditorButton>
+                <BsPen />
+                Annotation
+              </EditorButton>
+              <EditorButton>
+                <TbZoomInArea />
+                Zoom
+              </EditorButton>
             </EditCont>
             <PreviousCont>
-              <EditorButton onClick={goBack}><TbArrowBackUp />Previous Page</EditorButton>
+              <EditorButton onClick={goBack}>
+                <TbArrowBackUp />
+                Previous Page
+              </EditorButton>
             </PreviousCont>
             <LinksCont>
               <EditorButton onClick={handleHrv}>Trend Analysis</EditorButton>
@@ -150,7 +165,7 @@ const CardioAnalysis = (props) => {
           <GraphicalCont>
             <GraphsSection>
               <div className="container">
-                <div className="top-lines">
+                <div className="top-lines" style={{ gap: "50px" }}>
                   {[1, 2].map((num) => (
                     <LineChart key={num} count={num} />
                   ))}
@@ -159,40 +174,54 @@ const CardioAnalysis = (props) => {
             </GraphsSection>
             <AbnormalitiesCont>
               <div className="container">
-
                 <div className="bottom-lines">
                   <div className="bottom-buttons-div">
                     <div className="bottom-buttons-subdiv">
-                      <button className='bottom-buttons-button'>Class 1 <AiOutlineCaretDown /></button>
-                      <button className='bottom-buttons-button'>Merge  <AiOutlineCaretDown /></button>
-                    </div>
-
-                    <div className="bottom-buttons-subdiv">
-                      <button className='bottom-buttons-button'>Normal  <AiOutlineCaretDown /></button>
-                      <button className='bottom-buttons-button'>Change Type  <AiOutlineCaretDown /></button>
-                    </div>
-                    <div className="bottom-buttons-subdiv">
-                      <button className='bottom-buttons-button'>Default  <AiOutlineCaretDown /></button>
-                      <button className="bottom-buttons-buttons"><FaArrowAltCircleLeft /> <FaArrowAltCircleRight />  <FaMinusCircle /> <FaPlusCircle /></button>
+                      <button className="bottom-buttons-button">
+                        Class 1 <AiOutlineCaretDown />
+                      </button>
+                      <button className="bottom-buttons-button">
+                        Merge <AiOutlineCaretDown />
+                      </button>
                     </div>
                     <div className="bottom-buttons-subdiv">
-                      <button className='bottom-delete-buttons'>Delete <MdOutlineDelete/></button>
-                      <button className='bottom-buttons-button'>Reset selection</button>
-                    </div>                  </div>
+                      <button className="bottom-buttons-button">
+                        Normal <AiOutlineCaretDown />
+                      </button>
+                      <button className="bottom-buttons-button">
+                        Change Type <AiOutlineCaretDown />
+                      </button>
+                    </div>
+                    <div className="bottom-buttons-subdiv">
+                      <button className="bottom-buttons-button">
+                        Default <AiOutlineCaretDown />
+                      </button>
+                      <button className="bottom-buttons-buttons">
+                        <FaArrowAltCircleLeft /> <FaArrowAltCircleRight />{" "}
+                        <FaMinusCircle /> <FaPlusCircle />
+                      </button>
+                    </div>
+                    <div className="bottom-buttons-subdiv">
+                      <button className="bottom-delete-buttons">
+                        Delete <MdOutlineDelete />
+                      </button>
+                      <button className="bottom-buttons-button">
+                        Reset selection
+                      </button>
+                    </div>{" "}
+                  </div>
                   <EmptyChart />
                   {[1, 2, 3, 4, 5, 6].map((num) => (
                     <Bottom key={num} />
                   ))}
                 </div>
               </div>
-
-
             </AbnormalitiesCont>
           </GraphicalCont>
         </CAnalyseCont>
       </Main>
     </>
-  )
-}
+  );
+};
 
 export default CardioAnalysis;

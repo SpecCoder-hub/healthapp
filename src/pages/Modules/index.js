@@ -39,14 +39,14 @@ const Module = (props) => {
 
   // console.log(role)
 
-  useEffect(() => {
-    if (!Cookies.get("accessToken")) {
-      console.log("no Token");
-      setTimeout(() => {
-        navigate("/signin");
-      }, []);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!Cookies.get("accessToken")) {
+  //     console.log("no Token");
+  //     setTimeout(() => {
+  //       navigate("/signin");
+  //     }, []);
+  //   }
+  // }, []);
 
   const handleMS = (e) => {
     e.preventDefault();

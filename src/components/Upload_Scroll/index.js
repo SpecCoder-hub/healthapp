@@ -53,7 +53,6 @@ const Upload_Scroll = () => {
       })
       .then((res) => {
         dispatch({ ecg: res.data, data: res.data.slice(0, 100) });
-
       });
   };
 

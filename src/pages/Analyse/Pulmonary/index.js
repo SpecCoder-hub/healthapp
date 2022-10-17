@@ -39,15 +39,15 @@ import Cookies from 'js-cookie'
 const CardioAnalysis = (props) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!Cookies.get("accessToken")) {
-      console.log("no Token");
-      setTimeout(() => {
-        navigate("/signin")
-      })
+  // useEffect(() => {
+  //   if (!Cookies.get("accessToken")) {
+  //     console.log("no Token");
+  //     setTimeout(() => {
+  //       navigate("/signin")
+  //     })
 
-    }
-  })
+  //   }
+  // })
 
 
 

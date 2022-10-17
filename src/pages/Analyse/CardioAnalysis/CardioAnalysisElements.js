@@ -8,7 +8,7 @@ export const Main = styled.div `
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-
+    flex-direction: column;
 `
 
 export const CAnalyseCont = styled.div `

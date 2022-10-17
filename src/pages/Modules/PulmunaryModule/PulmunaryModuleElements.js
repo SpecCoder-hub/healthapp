@@ -199,11 +199,11 @@ export const MonitorChart = styled.div `
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-
+    gap: 20px;
 `
 
 export const ChartHead = styled.h5 `
-    width: 5%;
+    width: 15%;
     text-align: center;
     display: flex;
     flex-direction: column;
