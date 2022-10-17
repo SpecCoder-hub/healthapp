@@ -7,12 +7,11 @@ import hampelFilter from "hampel-filter";
 import { useStore } from "../../../Context/store";
 
 const CVPChart = ({ data, width, height }) => {
-  const { state, dispatch } = useStore();
+  const { state } = useStore();
   const chartComponentRef1 = useRef(null);
 
   useEffect(() => {
     updateSeries(state.data);
-    console.log(state.data);
   }, [state.data]);
 
   const chartOptions = {
@@ -28,7 +27,7 @@ const CVPChart = ({ data, width, height }) => {
       tickInterval: 1,
       ordinal: false,
       visible: false,
-      zoomEnabled: true,
+      // zoomEnabled: true,
       gridLineColor: "#f9ebeb",
       gridLineWidth: 0,
     },
@@ -94,7 +93,7 @@ const CVPChart = ({ data, width, height }) => {
 
     const values1 = [];
     for (let i = 0; i < data.length; i++) {
-      values1.push(data[i].y);
+      values1.push(data[i].cvp);
     }
     const lead1 = hampelFilter(values1, { windowHalfWidth: 15 });
     for (let i = 0; i < data.length; i++) {
