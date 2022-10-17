@@ -101,13 +101,14 @@ const CVPChart = ({ data, width, height }) => {
   //   }
   //   chart1?.series[0].setData(data, true, false);
   // };
-
+console.log(state.ecg)
+console.log(state.data)
   return (
     <ResponsiveContainer height="100%" width="80%">
       <AreaChart
         width={width}
         height={height}
-        data={state.data}
+        data={state.ecg}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >
         <Area

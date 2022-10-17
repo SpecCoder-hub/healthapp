@@ -52,7 +52,8 @@ const Upload_Scroll = () => {
         url: `${process.env.REACT_APP_MAIN_URL}/get_plot?value=${value}`,
       })
       .then((res) => {
-        dispatch({ data: res.data });
+        dispatch({ ecg: res.data, data: res.data.slice(0, 100) });
+
       });
   };
 

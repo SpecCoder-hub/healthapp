@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useReducer } from "react";
 
 const initialState = {
-  data: []
+  data: [],
+  ecg: [],
 };
 
 const StoreContext = createContext({
