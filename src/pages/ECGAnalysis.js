@@ -13,12 +13,11 @@ const a = () => {
       }}
     >
       <iframe
-        // title="ecg live"
         allowFullScreen
         width={"100%"}
         height={"100%"}
         frameBorder="0"
-        src={"https://app.cardiolyse.com/patients"}
+        src={"https://ecg.cardiolyse.com/sign-in"}
       />
     </div>
   );

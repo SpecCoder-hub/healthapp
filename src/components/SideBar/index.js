@@ -108,11 +108,26 @@ const SideBar = (props) => {
             <ItemsHead>Neural Networks</ItemsHead>
           </SidebarItems>
           <SidebarItems
-            onClick={() => navigate("/ecg")}
+            // onClick={() => navigate("/ecg")}
             style={userRole == "User" ? { cursor: "no-drop" } : null}
           >
-            <img src={analysis} width="16" />
-            <ItemsHead>Live ECG</ItemsHead>
+            <a
+              target="_blank"
+              href="https://app.cardiolyse.com/patients"
+              rel="noreferrer"
+              style={{ width: "100%" }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <img src={analysis} width="16" />
+                <ItemsHead>Live ECG</ItemsHead>
+              </div>
+            </a>
           </SidebarItems>
           {/* <SidebarItems onClick={() => navigate('/cardiolyse')} style={userRole == "User" ? { cursor: "no-drop" } : null}>
             <img src={cardiogram} width="16" />
