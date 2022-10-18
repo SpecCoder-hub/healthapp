@@ -13,7 +13,7 @@ export const Flex = styled.div`
   margin-top: 10px;
 `;
 
-const Upload_Scroll = () => {
+const Scroll = () => {
   const [progress, setProgress] = useState(0);
   const [slide, setSlide] = useState(0);
   const { state, dispatch } = useStore();
@@ -91,4 +91,4 @@ const Upload_Scroll = () => {
   );
 };
 
-export default Upload_Scroll;
+export default Scroll;

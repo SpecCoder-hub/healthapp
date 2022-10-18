@@ -43,14 +43,14 @@ import BVolChart from "../../../components/Charts/AreaChart/BVol";
 import { CgArrowsExpandRight } from "react-icons/cg";
 import { AiOutlineFolderOpen } from "react-icons/ai";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import Upload_Scroll from "../../../components/Upload_Scroll";
+import Scroll from "../../../components/Scroll";
 
 const MainModule = () => {
   const [gender, setGender] = useState("female");
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Upload_Scroll />
+      <Scroll />
       <Main>
         <StatCont>
           <StatDetails>

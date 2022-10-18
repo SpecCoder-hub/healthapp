@@ -85,7 +85,7 @@ import IntervalNumber from "../../../components/Charts/BarChart/IntervalNumber";
 import HRVRr from "../../../components/Charts/BarChart/HRVRR";
 import ECGChart from "../../../components/Charts/LineChart/Ecg";
 import Cookies from "js-cookie";
-import Upload_Scroll from "../../../components/Upload_Scroll";
+import Scroll from "../../../components/Scroll";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -151,7 +151,7 @@ const HRVAnalysis = (props) => {
       />
       <Main>
         <CAnalyseCont>
-          <Upload_Scroll />
+          <Scroll />
           <NavigationCont>
             <EditCont>
               <EditorButton onClick={goBack}>

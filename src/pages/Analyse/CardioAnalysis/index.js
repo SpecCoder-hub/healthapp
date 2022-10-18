@@ -31,7 +31,7 @@ import { BiErrorAlt } from "react-icons/bi";
 import { BsFillArrowRightCircleFill, BsPen } from "react-icons/bs";
 import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
 import Cookies from "js-cookie";
-import UploadScroll from "../../../components/Upload_Scroll";
+import UploadScroll from "../../../components/Scroll";
 
 const CardioAnalysis = (props) => {
   const navigate = useNavigate();

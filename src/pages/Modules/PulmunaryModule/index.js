@@ -46,12 +46,12 @@ import { AiOutlineFolderOpen } from "react-icons/ai";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import PulChart from "../../../components/Charts/AreaChart/Pul";
 import { data1 } from "../../Data/data1";
-import Upload_Scroll from "../../../components/Upload_Scroll";
+import Scroll from "../../../components/Scroll";
 
 const PulmunaryModule = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Upload_Scroll />
+      <Scroll />
       <Main>
         <StatCont>
           <GraphCont>

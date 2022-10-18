@@ -38,7 +38,7 @@ import {
 } from "react-icons/bs";
 import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
 import Cookies from "js-cookie";
-import Upload_Scroll from "../../../components/Upload_Scroll";
+import Scroll from "../../../components/Scroll";
 
 const CardioAnalysis = (props) => {
   const navigate = useNavigate();

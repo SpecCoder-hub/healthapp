@@ -55,7 +55,7 @@ import {
   FaMinusCircle,
   FaPlusCircle,
 } from "react-icons/fa";
-import Upload_Scroll from "../../../components/Upload_Scroll";
+import Scroll from "../../../components/Scroll";
 
 // basic configuration of chart js and combine with react-chartjs-2
 ChartJS.register(
@@ -134,7 +134,7 @@ const CardioAnalysis = (props) => {
       />
       <Main>
         <CAnalyseCont>
-          <Upload_Scroll />
+          <Scroll />
           <NavigationCont>
             <EditCont>
               <EditorButton>
