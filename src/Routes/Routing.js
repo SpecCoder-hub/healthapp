@@ -9,6 +9,8 @@ import Pulmonary from "../pages/Analyse/Pulmonary";
 import CardioTrendAnalysis from "../pages/Analyse/CardioTrendAnalysis";
 import HRVAnalysis from "../pages/Analyse/HRVAnalysis";
 import DashBoard from "../pages/Dashboards";
+import ECGAnalysis from "../pages/ECGAnalysis";
+import APPCardiolyse from "../pages/APPCardiolyse";
 import InputOutput from "../pages/InputOutput";
 import Module from "../pages/Modules";
 import CardioPoints from "../pages/Modules/CardioPoints";
@@ -125,6 +127,9 @@ const Routing = () => {
               />
             }
           ></Route>
+          <Route path="/ecg" element={<ECGAnalysis />}></Route>
+          <Route path="/cardiolyse" element={<APPCardiolyse />}></Route>
+
           <Route
             path="/hrvanalyse"
             element={

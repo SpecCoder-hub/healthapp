@@ -104,9 +104,9 @@ const HRVAnalysis = (props) => {
         handleRS={handleRS}
         handleRSaOff={handleRSaOff}
       />
-      <Upload_Scroll />
       <Main>
         <CAnalyseCont>
+          <Upload_Scroll />
           <NavigationCont>
             <EditCont>
               <EditorButton onClick={goBack}>

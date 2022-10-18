@@ -95,9 +95,9 @@ const CardioAnalysis = (props) => {
         handleRS={handleRS}
         handleRSaOff={handleRSaOff}
       />
-      <UploadScroll />
       <Main>
         <CAnalyseCont>
+          <UploadScroll />
           <NavigationCont>
             <EditCont>
               <EditorButton>

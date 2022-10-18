@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Main = styled.div `
+export const Main = styled.div`
     width: 100%;
     height: 100vh;
     background: #101012;
@@ -8,7 +8,7 @@ export const Main = styled.div `
     justify-content: flex-end;
 `
 
-export const ReportCont = styled.div `
+export const ReportCont = styled.div`
     width: 93%;
     height: 100vh;
     background : #101012;
@@ -18,7 +18,7 @@ export const ReportCont = styled.div `
     flex-direction : row;
 `
 
-export const GenerateCont = styled.div `
+export const GenerateCont = styled.div`
     width : 68%;
     height : 85vh;
     display: flex;
@@ -27,7 +27,7 @@ export const GenerateCont = styled.div `
     justify-content: space-evenly;
 `
 
-export const ProcessCont = styled.div `
+export const ProcessCont = styled.div`
     width: 90%;
     height: 7vh;
     display: flex;
@@ -36,7 +36,7 @@ export const ProcessCont = styled.div `
     align-items: center;
 `
 
-export const ProcessContGroup = styled.div `
+export const ProcessContGroup = styled.div`
     width: 22%;
     height: 6vh;
     display: flex;
@@ -48,7 +48,7 @@ export const ProcessContGroup = styled.div `
     align-items: center;
 `
 
-export const IndexCont = styled.div `
+export const IndexCont = styled.div`
     width: 20%;
     height: 100%;
     background: transparent;
@@ -65,7 +65,7 @@ export const IconStyle1 = {
     fontSize: "14px"
 }
 
-export const HeadCont = styled.h5 `
+export const HeadCont = styled.h5`
     margin: 0;
     color: #fff;
     font-family: corbel light;
@@ -73,7 +73,7 @@ export const HeadCont = styled.h5 `
     font-size: 12px;
 `
 
-export const ProcessIcon = styled.div `
+export const ProcessIcon = styled.div`
     background: #101012;
     border: 1px solid #101012;
     width: 24%;
@@ -84,20 +84,20 @@ export const ProcessIcon = styled.div `
     justify-content: center;
 `
 
-export const IconStyle2 ={
+export const IconStyle2 = {
     color: "#00a99d",
     borderRadius: "14px",
     padding: "3px",
     fontSize: "22px"
 }
-export const IconStyle3 ={
+export const IconStyle3 = {
     color: "#fff",
     borderRadius: "14px",
     padding: "3px",
     fontSize: "22px"
 }
 
-export const SelectionCont = styled.div `
+export const SelectionCont = styled.div`
     width: 90%;
     height: 63vh;
     display: flex;
@@ -106,7 +106,7 @@ export const SelectionCont = styled.div `
     justify-content: space-between;
 `
 
-export const SelectCont = styled.div `
+export const SelectCont = styled.div`
     width: 32%;
     height: 90%;
     display: flex;
@@ -117,7 +117,7 @@ export const SelectCont = styled.div `
     border-radius: 12px;
     
 `
-export const SelectionContHead = styled.h5 `
+export const SelectionContHead = styled.h5`
     width: 85%;
     height: 4vh;
     color: #fff;
@@ -127,7 +127,7 @@ export const SelectionContHead = styled.h5 `
     font-weight: 200;
 `
 
-export const SelectOptionCont = styled.div `
+export const SelectOptionCont = styled.div`
     width: 85%;
     height: 85%;
     display: flex;
@@ -137,7 +137,7 @@ export const SelectOptionCont = styled.div `
     row-gap: 3px;
 `
 
-export const OptionGroup = styled.div `
+export const OptionGroup = styled.div`
     width: 100%;
     height: 5vh;
     display: flex;
@@ -147,7 +147,7 @@ export const OptionGroup = styled.div `
     align-items: center;
 `
 
-export const PersonIcon = styled.div `
+export const PersonIcon = styled.div`
     width: 20%;
     height: 100%;
     background: transparent;
@@ -156,7 +156,7 @@ export const PersonIcon = styled.div `
     justify-content: center;
 `
 
-export const OptionHead = styled.h5 `
+export const OptionHead = styled.h5`
     width: 60%;
     color: #fff;
     margin: 0;
@@ -165,7 +165,7 @@ export const OptionHead = styled.h5 `
     font-weight: 200;
     text-align: center;
 `
-export const OptionCheck = styled.input `
+export const OptionCheck = styled.input`
     width: 20%;
     height: 16px;
     display: flex;
@@ -174,7 +174,7 @@ export const OptionCheck = styled.input `
 
 `
 
-export const GenerateButtonCont = styled.div `
+export const GenerateButtonCont = styled.div`
     width: 95%;
     height: 15vh;
     display: flex;
@@ -183,7 +183,7 @@ export const GenerateButtonCont = styled.div `
     justify-content: space-evenly;
 `
 
-export const GenerateButtonHead = styled.h5 `
+export const GenerateButtonHead = styled.h5`
     width: 40%;
     height: 2vh;
     color: #fff;
@@ -194,7 +194,7 @@ export const GenerateButtonHead = styled.h5 `
     text-align: center;
 `
 
-export const GenerateButton = styled.button `
+export const GenerateButton = styled.button`
     width: 40%;
     height: 6vh;
     border-radius: 10px;
@@ -206,7 +206,7 @@ export const GenerateButton = styled.button `
 `
 
 
-export const ArchiveCont = styled.div `
+export const ArchiveCont = styled.div`
     width: 30%;
     height: 85vh;
     background-color: #1e1f24;
@@ -218,7 +218,7 @@ export const ArchiveCont = styled.div `
 `
 
 
-export const VitalMonitor = styled.div `
+export const VitalMonitor = styled.div`
     width: 85%;
     height: 4vh;
     display: flex;
@@ -226,19 +226,19 @@ export const VitalMonitor = styled.div `
     justify-content: space-between;
 `
 
-export const MonitorHead = styled.h5 `
+export const MonitorHead = styled.h5`
     color: #fff;
     margin: 0;
     font-weight: 300;
     font-family: corbel;
 `
 
-export const MonitorExt = styled.span `
+export const MonitorExt = styled.span`
     color: #00a99d;
     font-size: 16px;
 `
 
-export const ArchiveFoldCont = styled.div `
+export const ArchiveFoldCont = styled.div`
     width: 85%;
     height: 90%;
     display: flex;
@@ -250,7 +250,7 @@ export const ArchiveFoldCont = styled.div `
     scroll-behavior: smooth;
 `
 
-export const ReportsFold = styled.div `
+export const ReportsFold = styled.div`
     width : 100%;
     height : 4vh;
     display : flex;
@@ -262,7 +262,7 @@ export const ReportsFold = styled.div `
     border-radius : 5px;
 `
 
-export const ReportsHead = styled.h5 `
+export const ReportsHead = styled.h5`
       width : 75%;
     color: #fff;
     margin: 0;

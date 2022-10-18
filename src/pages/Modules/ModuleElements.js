@@ -10,10 +10,10 @@ export const Main = styled.div `
 
 export const ModuleCont = styled.div `
     width: 93%;
-    // height: 100vh;
+    height: 100vh;
     background : #101012;
     display : flex;
-    // justify-content: flex-end;
+    justify-content: flex-end;
     align-items : center;
     flex-direction : column;
 `
@@ -122,5 +122,5 @@ export const SwitchNav_WithButtonActive = styled.button `
 
 export const ModuleAnalytics = styled.div `
     width: 100%;
-    // height: 82vh;
+    height: 82vh;
 `

@@ -13,6 +13,8 @@ import {
   SwitchNav_WithButton,
   SwitchNav_WithButtonActive,
 } from "./ModuleElements";
+import axios from "axios";
+
 import { TbArrowBackUp } from "react-icons/tb";
 import { BiBody } from "react-icons/bi";
 import SideBar from "../../components/SideBar";
@@ -27,7 +29,6 @@ import lungsIcon from "./Images/lungs-icon.png";
 import lungsIcon1 from "./Images/lungs-icon1.png";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import Upload_Scroll from "../../components/Upload_Scroll";
 
 const Module = (props) => {
   const [moduleToggler, setModuleToggler] = useState(false);
@@ -39,14 +40,14 @@ const Module = (props) => {
 
   // console.log(role)
 
-  // useEffect(() => {
-  //   if (!Cookies.get("accessToken")) {
-  //     console.log("no Token");
-  //     setTimeout(() => {
-  //       navigate("/signin");
-  //     }, []);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!Cookies.get("accessToken")) {
+      console.log("no Token");
+      setTimeout(() => {
+        navigate("/signin");
+      }, []);
+    }
+  });
 
   const handleMS = (e) => {
     e.preventDefault();
@@ -159,21 +160,7 @@ const Module = (props) => {
                 ></ToggleIcon>
               </SwitchNav_Active>
             )}
-            {props.CardioPoints ? (
-              <SwitchNav>
-                <ToggleIcon
-                  src={props.CardioPoints ? heartIcon1 : heartIcon}
-                ></ToggleIcon>
-              </SwitchNav>
-            ) : (
-              <SwitchNav_Active>
-                <ToggleIcon
-                  src={props.CardioPoints ? heartIcon1 : heartIcon}
-                ></ToggleIcon>
-              </SwitchNav_Active>
-            )}
           </ModuleToggle>
-          <Upload_Scroll />
           <ModuleAnalytics>
             {props.MainState && <MainModule />}
             {props.PulmunaryState && <PulmunaryModule />}

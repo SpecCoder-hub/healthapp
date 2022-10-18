@@ -62,7 +62,7 @@ const Upload_Scroll = () => {
 
   return (
     <Flex>
-      <Flex style={{ padding: "0 10px 0 10px", alignItems: "center" }}>
+      {/* <Flex style={{ padding: "0 10px 0 10px", alignItems: "center" }}>
         <input
           type="file"
           name="file"
@@ -75,7 +75,7 @@ const Upload_Scroll = () => {
         <span>
           Viewing - {Math.floor((slide / MaxSlide) * 100 * 100) / 100} %
         </span>
-      </Flex>
+      </Flex> */}
       <div style={{ width: "100%", padding: "0 10px 0 10px" }}>
         <input
           type="range"

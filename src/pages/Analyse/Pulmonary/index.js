@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import RespChart from '../../../components/Charts/LineChart/RespChart'
-import RespChart1 from '../../../components/Charts/LineChart/ResChart1'
-import RespChart2 from '../../../components/Charts/LineChart/RespChart2'
-import SideBar from '../../../components/SideBar'
-import "./index.css"
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import RespChart from "../../../components/Charts/LineChart/RespChart";
+import RespChart1 from "../../../components/Charts/LineChart/ResChart1";
+import RespChart2 from "../../../components/Charts/LineChart/RespChart2";
+import SideBar from "../../../components/SideBar";
+import "./index.css";
 import {
   Main,
   CAnalyseCont,
@@ -26,15 +26,19 @@ import {
   MonitorExt,
   ArchiveFoldCont,
   ReportsFold,
-  ReportsHead
-} from './PulmonaryElements'
-import { AiOutlineSelect } from 'react-icons/ai'
-import { CgArrowsExpandRight } from 'react-icons/cg'
-import { BiErrorAlt } from 'react-icons/bi'
-import { BsFillArrowRightCircleFill, BsPen, BsPlusCircleFill } from 'react-icons/bs'
-import { TbZoomInArea, TbArrowBackUp } from 'react-icons/tb'
-import Cookies from 'js-cookie'
-
+  ReportsHead,
+} from "./PulmonaryElements";
+import { AiOutlineSelect } from "react-icons/ai";
+import { CgArrowsExpandRight } from "react-icons/cg";
+import { BiErrorAlt } from "react-icons/bi";
+import {
+  BsFillArrowRightCircleFill,
+  BsPen,
+  BsPlusCircleFill,
+} from "react-icons/bs";
+import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
+import Cookies from "js-cookie";
+import Upload_Scroll from "../../../components/Upload_Scroll";
 
 const CardioAnalysis = (props) => {
   const navigate = useNavigate();
@@ -49,48 +53,44 @@ const CardioAnalysis = (props) => {
   //   }
   // })
 
-
-
   const handleRS = (e) => {
-    e.preventDefault()
-    props.setModule("Reports")
-    navigate('/reports')
-
-  }
+    e.preventDefault();
+    props.setModule("Reports");
+    navigate("/reports");
+  };
   const handleRSaOff = (e) => {
-    e.preventDefault()
-    props.setModule("Main Module")
-    navigate('/')
-  }
-
+    e.preventDefault();
+    props.setModule("Main Module");
+    navigate("/");
+  };
 
   const handleCSa = (e) => {
-    e.preventDefault()
-    props.setModule("Cardio Trend Analysis")
-    props.setCardioStatea(true)
-  }
+    e.preventDefault();
+    props.setModule("Cardio Trend Analysis");
+    props.setCardioStatea(true);
+  };
   const handleCSaOff = (e) => {
-    e.preventDefault()
-    props.setModule("Cardio Module")
-    props.setCardioStatea(false)
-  }
+    e.preventDefault();
+    props.setModule("Cardio Module");
+    props.setCardioStatea(false);
+  };
 
   const handleHrv = () => {
-    navigate('/hrvanalyse')
-  }
+    navigate("/hrvanalyse");
+  };
 
   const handlePCP = () => {
-    navigate('/pcpanalyse')
-  }
+    navigate("/pcpanalyse");
+  };
 
   const goBack = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    window.history.back()
-    props.setModule("Cardio Module")
-  }
+    window.history.back();
+    props.setModule("Cardio Module");
+  };
 
-  props.setModule("Pulmonary Module")
+  props.setModule("Pulmonary Module");
   return (
     <>
       <SideBar
@@ -105,35 +105,55 @@ const CardioAnalysis = (props) => {
         <CAnalyseCont>
           <NavigationCont>
             <EditCont>
-              <EditorButton><AiOutlineSelect />Select</EditorButton>
-              <EditorButton><BsPen />Annotation</EditorButton>
-              <EditorButton><TbZoomInArea />Zoom</EditorButton>
+              <EditorButton>
+                <AiOutlineSelect />
+                Select
+              </EditorButton>
+              <EditorButton>
+                <BsPen />
+                Annotation
+              </EditorButton>
+              <EditorButton>
+                <TbZoomInArea />
+                Zoom
+              </EditorButton>
             </EditCont>
             <PreviousCont>
-              <EditorButton onClick={goBack}><TbArrowBackUp />Previous Page</EditorButton>
+              <EditorButton onClick={goBack}>
+                <TbArrowBackUp />
+                Previous Page
+              </EditorButton>
             </PreviousCont>
             <LinksCont>
-              <EditorButton onClick={handleHrv}><BsPlusCircleFill />Add to report</EditorButton>
+              <EditorButton onClick={handleHrv}>
+                <BsPlusCircleFill />
+                Add to report
+              </EditorButton>
             </LinksCont>
           </NavigationCont>
           <GraphicalCont>
-
             <GraphsSection>
-              <div className='main-lines'>
-                <div style={{ width: 100 ,display:'flex',flexDirection:'column',justifyContent:'space-around'}}>
-                  <MonitorHead >Epochs</MonitorHead>
+              <div className="main-lines">
+                <div
+                  style={{
+                    width: 100,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <MonitorHead>Epochs</MonitorHead>
                   <MonitorHead>Resp Skip</MonitorHead>
                 </div>
-                <div >
-                  <div className='sub-lines'>
-                    <div className='line1'></div>
-                    <div className='line2'></div>
-                    <div className='line3'></div>
+                <div>
+                  <div className="sub-lines">
+                    <div className="line1"></div>
+                    <div className="line2"></div>
+                    <div className="line3"></div>
                   </div>
-                  <div className='line4'></div>
-                  <div className='line5'></div>
+                  <div className="line4"></div>
+                  <div className="line5"></div>
                 </div>
-
               </div>
               <ChartSection>
                 <Yaxis>
@@ -179,7 +199,9 @@ const CardioAnalysis = (props) => {
               <ArchiveCont>
                 <VitalMonitor>
                   <MonitorHead>Abnormalities</MonitorHead>
-                  <MonitorExt><CgArrowsExpandRight /></MonitorExt>
+                  <MonitorExt>
+                    <CgArrowsExpandRight />
+                  </MonitorExt>
                 </VitalMonitor>
                 <ArchiveFoldCont>
                   <ReportsFold>
@@ -219,13 +241,12 @@ const CardioAnalysis = (props) => {
                   </ReportsFold>
                 </ArchiveFoldCont>
               </ArchiveCont>
-
             </AbnormalitiesCont>
           </GraphicalCont>
         </CAnalyseCont>
       </Main>
     </>
-  )
-}
+  );
+};
 
 export default CardioAnalysis;

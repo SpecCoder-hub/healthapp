@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="https://ecg.cardiolyse.com/v2/auth/oauth/token" action="post">
+      <input
+        type="hidden"
+        name="username"
+        id="username"
+        value="demo.holter@cardiolyse.com"
+      />
+      <input type="hidden" name="password" id="password" value="Welcome123#" />
+      <input type="hidden" name="grant_type" id="grant_type" value="password" />
+      <input type="hidden" name="authorization" id="authorization" value="basic d2ViX2FwcDo=" />
+      <input type="hidden" name="cookie" id="cookie" value="JSESSIONID=174585C81D9AEEC22B021C704D05D0C1" />
+
+      <button type="submit">Pay</button>
+    </form>
+    <!-- <button id="post-btn">pay</button> -->
+  </body>
+  <!-- <script>
+    const button = document.getElementById("post-btn");
+
+    button.addEventListener("click", async (_) => {
+      try {
+        const response = await fetch("https://staging-ipg.blinq.pk/Payment/PaymentProcess.aspx",
+          {
+            method: "post",
+            body: {
+              client_id: "29cg3XswQC96OSJ",
+              customer_email: "abid.zulfi@domain.com",
+              customer_mobile: "03400099876",
+              customer_name: "Abid Zulfiqar",
+              encrypted_form_data: "afddffb24ea4ffcf686555879379f4af",
+              order_amount: "1000",
+              order_expiry_date_time: "2023-01-01",
+              order_id: "KB1232",
+              payment_via: "BLINQ_VM",
+              product_description: "TestInvoice",
+              return_url: "https://web.karblock.com/#/paymentconfirmation",
+            },
+          }
+        );
+        console.log("Completed!", response);
+      } catch (err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+  </script> -->
+</html>

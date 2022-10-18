@@ -18,6 +18,9 @@ import { GiBrain } from "react-icons/gi";
 import { FaHeartbeat, FaUserAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import analysis from "../asset/analysis-small.png";
+import cardiogram from "../asset/cardiogram-small.png";
+import axios from "axios";
 
 const SideBar = (props) => {
   const [userRole, setUserRole] = useState();
@@ -25,7 +28,12 @@ const SideBar = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (Cookies.get("accessToken")) {
+    if (!Cookies.get("accessToken")) {
+      console.log("no Token");
+      setTimeout(() => {
+        navigate("/signin");
+      });
+    } else if (Cookies.get("accessToken")) {
       setUserRole(Cookies.get("role"));
       console.log(userRole);
     }
@@ -99,6 +107,17 @@ const SideBar = (props) => {
             <GiBrain />
             <ItemsHead>Neural Networks</ItemsHead>
           </SidebarItems>
+          <SidebarItems
+            onClick={() => navigate("/ecg")}
+            style={userRole == "User" ? { cursor: "no-drop" } : null}
+          >
+            <img src={analysis} width="16" />
+            <ItemsHead>Live ECG</ItemsHead>
+          </SidebarItems>
+          {/* <SidebarItems onClick={() => navigate('/cardiolyse')} style={userRole == "User" ? { cursor: "no-drop" } : null}>
+            <img src={cardiogram} width="16" />
+            <ItemsHead>Holter Analysis</ItemsHead>
+          </SidebarItems> */}
           <SidebarItems
             style={userRole == "User" ? { cursor: "no-drop" } : null}
           >

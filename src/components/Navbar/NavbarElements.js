@@ -8,7 +8,7 @@ export const Main = styled.div `
     align-items : center;
     flex-direction : row;
     z-index: 111;
-    // position: absolute;
+    position: absolute;
     background : #101012;
 `
 
