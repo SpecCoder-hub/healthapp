@@ -91,15 +91,15 @@ const CVPChart = ({ data, width, height }) => {
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;
 
-    const values1 = [];
-    for (let i = 0; i < data.length; i++) {
-      values1.push(data[i].y);
-    }
-    const lead1 = hampelFilter(values1, { windowHalfWidth: 15 });
-    for (let i = 0; i < data.length; i++) {
-      data[i].y = lead1[i];
-    }
-    chart1?.series[0].setData(data, true, false);
+    // const values1 = [];
+    // for (let i = 0; i < data.length; i++) {
+    //   values1.push(data[i].y);
+    // }
+    const ecg = hampelFilter(data, { windowHalfWidth: 15 });
+    // for (let i = 0; i < data.length; i++) {
+    //   data[i].y = lead1[i];
+    // }
+    chart1?.series[0].setData(ecg, true, false);
   };
 
   return (

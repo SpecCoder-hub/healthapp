@@ -39,7 +39,8 @@ import { HiDocumentDownload } from "react-icons/hi";
 
 const Reports = (props) => {
   const navigate = useNavigate();
-  const [progress, setProgress] = useState(0);
+  const [progressCSV, setProgressCSV] = useState(0);
+  const [progressHEX, setProgressHEX] = useState(0);
 
   useEffect(() => {
     if (!Cookies.get("accessToken")) {
@@ -64,12 +65,13 @@ const Reports = (props) => {
   const redirect = () => {
     navigate("/");
   };
-  const hiddenFileInput = React.useRef(null);
+  const hiddenFileInputCSV = React.useRef(null);
+  const hiddenFileInputHEX = React.useRef(null);
 
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
+  const handleClickCSV = (event) => {
+    hiddenFileInputCSV.current.click();
   };
-  const handleChange = (event) => {
+  const handleChangeCSV = (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
@@ -80,7 +82,7 @@ const Reports = (props) => {
         url: `${process.env.REACT_APP_MAIN_URL}/uploadCSV`,
         data: formData,
         onUploadProgress: (p) => {
-          setProgress(Math.floor((p.loaded / p.total) * 100 * 100) / 100);
+          setProgressCSV(Math.floor((p.loaded / p.total) * 100 * 100) / 100);
         },
       })
       .then((data) => {
@@ -88,6 +90,27 @@ const Reports = (props) => {
       });
   };
 
+  const handleClickHEX = (event) => {
+    hiddenFileInputHEX.current.click();
+  };
+  const handleChangeHEX = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    axios
+      .request({
+        method: "POST",
+        url: `${process.env.REACT_APP_MAIN_URL}/uploadHEX`,
+        data: formData,
+        onUploadProgress: (p) => {
+          setProgressHEX(Math.floor((p.loaded / p.total) * 100 * 100) / 100);
+        },
+      })
+      .then((data) => {
+        // slideChange(0);
+      });
+  };
   const handleCSa = (e) => {
     e.preventDefault();
     props.setModule("Cardio Trend Analysis");
@@ -138,17 +161,60 @@ const Reports = (props) => {
                       type="file"
                       placeholder="Upload CSV"
                       name="surname"
-                      ref={hiddenFileInput}
-                      onChange={handleChange}
+                      ref={hiddenFileInputCSV}
+                      onChange={handleChangeCSV}
                     ></FormInput>
 
-                    <FormFileButton onClick={handleClick}>
+                    <FormFileButton onClick={handleClickCSV}>
                       Browse
                     </FormFileButton>
                   </FormInputDiv>
-                  {progress > 0 && (
+                  {progressCSV > 0 && (
                     <span style={{ color: "white" }}>
-                      Uploading - {progress} %
+                      Uploading - {progressCSV} %
+                    </span>
+                  )}
+                </FormBodyFields>
+                <LiveButtonDiv onClick={redirect}>
+                  <LiveButton>
+                    <MdSensors />
+                    Go Live
+                  </LiveButton>
+                </LiveButtonDiv>
+              </FormBody>
+            </FormCont>
+            <FormCont>
+              <Input_Heading>Input HEX</Input_Heading>
+              <FormBody>
+                <FormBodyFields>
+                  <FormInputDiv>
+                    <RiAttachment2 style={SvgStyle} />
+                    <FormInput
+                      id="user"
+                      type="text"
+                      placeholder="Input URL"
+                      name="username"
+                    ></FormInput>
+                    <Em style={SvgStyle}></Em>
+                  </FormInputDiv>
+                  <FormInputDiv>
+                    <RiAttachment2 style={SvgStyle} />
+                    <FormInput
+                      style={{ display: "none" }}
+                      type="file"
+                      placeholder="Upload hex"
+                      name="surname"
+                      ref={hiddenFileInputHEX}
+                      onChange={handleChangeHEX}
+                    ></FormInput>
+
+                    <FormFileButton onClick={handleClickHEX}>
+                      Browse
+                    </FormFileButton>
+                  </FormInputDiv>
+                  {progressHEX > 0 && (
+                    <span style={{ color: "white" }}>
+                      Uploading - {progressHEX} %
                     </span>
                   )}
                 </FormBodyFields>

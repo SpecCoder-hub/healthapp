@@ -52,7 +52,22 @@ const Scroll = () => {
         url: `${process.env.REACT_APP_MAIN_URL}/get_plot?value=${value}`,
       })
       .then((res) => {
-        dispatch({ ecg: res.data, data: res.data.slice(0, 100) });
+        dispatch({ data: res.data.slice(0, 100) });
+      });
+
+    axios
+      .request({
+        method: "GET",
+        url: `${process.env.REACT_APP_MAIN_URL}/get_ecg?value=${value}`,
+      })
+      .then((res) => {
+        console.log("ecg")
+        console.log(res.data.length)
+        
+        dispatch({ ecg: res.data });
+      })
+      .catch((e) => {
+        console.log(e);
       });
   };
 
