@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import {
   LineChart,
   Line,
@@ -15,8 +15,10 @@ import {
 import { data2 } from "../../../pages/Data/data2";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import hampelFilter from "hampel-filter";
+import hampelFilter, { identifyOutliers } from "hampel-filter";
 import { useStore } from "../../../Context/store";
+import { chartOptions2, hampelOptions } from "../../../Context/constant";
+// import scaler from "minmaxscaler";
 
 const ECGChart = ({ width, height }) => {
   const { state } = useStore();
@@ -26,80 +28,6 @@ const ECGChart = ({ width, height }) => {
     updateSeries(state.ecg);
   }, [state.ecg]);
 
-  const chartOptions = {
-    xAxis: {
-      // type: 'datetime',
-      labels: {
-        format: "{value}", // %S.%L
-        style: {
-          color: "black",
-        },
-        enabled: false,
-      },
-      tickInterval: 1,
-      ordinal: false,
-      visible: false,
-      zoomEnabled: true,
-      gridLineColor: "#f9ebeb",
-      gridLineWidth: 1,
-    },
-    yAxis: {
-      labels: {
-        style: {
-          color: "white",
-        },
-      },
-      title: {
-        text: "",
-      },
-      gridLineColor: "#f68181",
-      gridLineWidth: 1,
-    },
-    plotOptions: {
-      series: {
-        enableMouseTracking: false,
-        states: {
-          hover: {
-            enabled: false,
-          },
-        },
-        lineWidth: 1,
-        turboThreshold: 3000,
-      },
-    },
-
-    tooltip: {
-      enabled: false,
-      valueDecimals: 2,
-      shared: true,
-      headerFormat: "Session_time: {point.x:%H:%M:%S}<br/>",
-    },
-    rangeSelector: {
-      enabled: false,
-    },
-    chart: {
-      panning: true,
-      alignTicks: false,
-      backgroundColor: "rgba(0,0,0,0)",
-      zoomType: "xy",
-    },
-    navigator: {
-      enabled: false,
-    },
-    scrollbar: {
-      enabled: false,
-    },
-    series: [
-      {
-        data: [],
-        // type: 'line',
-        color: "#0000ff",
-      },
-    ],
-    credits: {
-      enabled: false,
-    },
-  };
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;
 
@@ -107,7 +35,12 @@ const ECGChart = ({ width, height }) => {
     // for (let i = 0; i < data.length; i++) {
     //   values1.push(data[i].y);
     // }
-    const ecg = hampelFilter(data, { windowHalfWidth: 15 });
+    // const trans = scaler.fit_transform(data);
+// const X_test = scaler.transform([1.5, 2.3]);
+// const X_test_inverse = scaler.inverse_transform(X_test);
+// console.log(trans)
+    const ecg = hampelFilter(data, hampelOptions);
+    // console.log(identifyOutliers(data, hampelOptions))
     // for (let i = 0; i < data.length; i++) {
     //   data[i].y = lead1[i];
     // }
@@ -154,7 +87,7 @@ const ECGChart = ({ width, height }) => {
         style: { height: "100%", width: "100%" },
       }}
       highcharts={Highcharts}
-      options={chartOptions}
+      options={chartOptions2}
       constructorType="stockChart"
       ref={chartComponentRef1}
     />

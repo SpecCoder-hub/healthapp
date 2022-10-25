@@ -8,6 +8,7 @@ import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import hampelFilter from "hampel-filter";
 import { useStore } from "../../../Context/store";
+import { chartOptions1, hampelOptions } from "../../../Context/constant";
 
 // linear gradient of line chart.
 // const getGradiant = (ctx, chartArea) => {
@@ -118,80 +119,6 @@ const LineChart = ({ count }) => {
     updateSeries(state.ecg);
   }, [state.ecg]);
 
-  const chartOptions = {
-    xAxis: {
-      // type: 'datetime',
-      labels: {
-        format: "{value:%S.%L}", // %S.%L
-        style: {
-          color: "white",
-        },
-        enabled: true,
-      },
-      tickInterval: 100,
-      ordinal: false,
-      visible: true,
-      zoomEnabled: true,
-      gridLineColor: "#f68181",
-      gridLineWidth: 1,
-    },
-    yAxis: {
-      labels: {
-        style: {
-          color: "white",
-        },
-      },
-      title: {
-        text: "",
-      },
-      gridLineColor: "#f68181",
-      gridLineWidth: 1,
-    },
-    plotOptions: {
-      series: {
-        enableMouseTracking: false,
-        states: {
-          hover: {
-            enabled: false,
-          },
-        },
-        lineWidth: 1,
-        turboThreshold: 3000,
-      },
-    },
-
-    tooltip: {
-      enabled: false,
-      valueDecimals: 2,
-      shared: true,
-      headerFormat: "Session_time: {point.x:%H:%M:%S}<br/>",
-    },
-    rangeSelector: {
-      enabled: false,
-    },
-    chart: {
-      panning: true,
-      alignTicks: false,
-      backgroundColor: "rgba(0,0,0,0)",
-      zoomType: "xy",
-    },
-    navigator: {
-      enabled: false,
-    },
-    scrollbar: {
-      enabled: false,
-    },
-    series: [
-      {
-        data: [],
-        // type: 'line',
-        color: "#0000ff",
-      },
-    ],
-    credits: {
-      enabled: false,
-    },
-  };
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;
     
@@ -199,7 +126,7 @@ const LineChart = ({ count }) => {
     // for (let i = 0; i < data.length; i++) {
     //   values1.push(data[i].y);
     // }
-    const ecg = hampelFilter(data, { windowHalfWidth: 15 });
+    const ecg = hampelFilter(data, hampelOptions);
     // for (let i = 0; i < data.length; i++) {
     //   data[i].y = lead1[i];
     // }
@@ -211,7 +138,7 @@ const LineChart = ({ count }) => {
         style: { height: "100%", width: "100%" },
       }}
       highcharts={Highcharts}
-      options={chartOptions}
+      options={chartOptions1}
       constructorType="stockChart"
       ref={chartComponentRef1}
     />

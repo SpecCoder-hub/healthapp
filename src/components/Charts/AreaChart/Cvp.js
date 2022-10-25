@@ -5,6 +5,7 @@ import HighchartsReact from "highcharts-react-official";
 import hampelFilter from "hampel-filter";
 
 import { useStore } from "../../../Context/store";
+import { chartOptions2, hampelOptions } from "../../../Context/constant";
 
 const CVPChart = ({ data, width, height }) => {
   const { state } = useStore();
@@ -14,80 +15,6 @@ const CVPChart = ({ data, width, height }) => {
     updateSeries(state.ecg);
   }, [state.ecg]);
 
-  const chartOptions = {
-    xAxis: {
-      // type: 'datetime',
-      labels: {
-        format: "{value}", // %S.%L
-        style: {
-          color: "black",
-        },
-        enabled: false,
-      },
-      tickInterval: 1,
-      ordinal: false,
-      visible: false,
-      // zoomEnabled: true,
-      gridLineColor: "#f9ebeb",
-      gridLineWidth: 0,
-    },
-    yAxis: {
-      labels: {
-        style: {
-          color: "black",
-        },
-      },
-      title: {
-        text: "",
-      },
-      gridLineColor: "#f68181",
-      gridLineWidth: 0,
-    },
-    plotOptions: {
-      series: {
-        enableMouseTracking: false,
-        states: {
-          hover: {
-            enabled: false,
-          },
-        },
-        lineWidth: 1,
-        turboThreshold: 3000,
-      },
-    },
-
-    tooltip: {
-      enabled: false,
-      valueDecimals: 2,
-      shared: true,
-      headerFormat: "Session_time: {point.x:%H:%M:%S}<br/>",
-    },
-    rangeSelector: {
-      enabled: false,
-    },
-    chart: {
-      panning: true,
-      alignTicks: false,
-      backgroundColor: "rgba(0,0,0,0)",
-      zoomType: "xy",
-    },
-    navigator: {
-      enabled: false,
-    },
-    scrollbar: {
-      enabled: false,
-    },
-    series: [
-      {
-        data: [],
-        // type: 'line',
-        color: "#b3f1ff",
-      },
-    ],
-    credits: {
-      enabled: false,
-    },
-  };
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;
 
@@ -95,7 +22,7 @@ const CVPChart = ({ data, width, height }) => {
     // for (let i = 0; i < data.length; i++) {
     //   values1.push(data[i].y);
     // }
-    const ecg = hampelFilter(data, { windowHalfWidth: 15 });
+    const ecg = hampelFilter(data, hampelOptions);
     // for (let i = 0; i < data.length; i++) {
     //   data[i].y = lead1[i];
     // }
@@ -125,7 +52,7 @@ const CVPChart = ({ data, width, height }) => {
         style: { height: "100%", width: "80%", margin: "10px 30px 0 0" },
       }}
       highcharts={Highcharts}
-      options={chartOptions}
+      options={chartOptions2}
       constructorType="stockChart"
       ref={chartComponentRef1}
     />
