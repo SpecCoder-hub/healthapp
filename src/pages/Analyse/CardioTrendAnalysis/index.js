@@ -16,7 +16,7 @@ import {
   AbnormalitiesCont,
 } from "./CardioAnalysisElements";
 import { AiOutlineSelect } from "react-icons/ai";
-import {  BsPen } from "react-icons/bs";
+import { BsPen } from "react-icons/bs";
 import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
 import Cookies from "js-cookie";
 import { AiOutlineCaretDown } from "react-icons/ai";
@@ -153,8 +153,9 @@ const CardioAnalysis = (props) => {
             <GraphsSection>
               <div className="container">
                 <div className="top-lines" style={{ gap: "50px" }}>
-                  <LineChart lead={1} />
-                  <LineChart lead={2} />
+                  {[1, 2, 3, 4, 5, 6].map((_, index) => (
+                    <LineChart lead={index} key={index} />
+                  ))}
                 </div>
               </div>
             </GraphsSection>

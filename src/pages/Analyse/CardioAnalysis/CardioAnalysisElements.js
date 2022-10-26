@@ -141,15 +141,15 @@ export const YHeads = styled.h5 `
 
 export const ChartCont = styled.div `
     width: 345px;
-    height: 275px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1e1f24;
     border-radius: 8px;
-    // background : url(${Grid});
-    // background-size: cover;
-    // background-position: bottom;
+    background : url(${Grid});
+    background-size: cover;
+    background-position: bottom;
 `
 
 export const AbnormalitiesCont = styled.div `
