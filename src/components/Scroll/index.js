@@ -60,8 +60,28 @@ const Scroll = () => {
             url: `${process.env.REACT_APP_MAIN_URL}/get_ecg?value=${value}`,
           })
           .then((res) => {
-            console.log(res)
-            dispatch({ lead1: res.data.lead1, lead2: res.data.lead2, data: v1 });
+            let lead1 = res.data.lead1;
+            let lead2 = res.data.lead2;
+            let lead3 = [],
+              avl = [],
+              avr = [],
+              avf = [];
+            for (let i = 0; i < lead1.length; i++) {
+              let tmp = lead2[i] - lead1[i];
+              lead3.push(tmp);
+              avl.push((lead1[i] - tmp) / 2);
+              avr.push((lead1[i] + lead2[i]) / 2);
+              avf.push((lead2[i] + tmp) / 2);
+            }
+            dispatch({
+              lead1,
+              lead2,
+              lead3,
+              avl,
+              avr,
+              avf,
+              data: v1,
+            });
           });
       });
   };

@@ -13,23 +13,10 @@ import {
   LinksCont,
   GraphicalCont,
   GraphsSection,
-  ChartSection,
-  Yaxis,
-  YHeads,
-  ChartCont,
   AbnormalitiesCont,
-  ArchiveCont,
-  VitalMonitor,
-  MonitorHead,
-  MonitorExt,
-  ArchiveFoldCont,
-  ReportsFold,
-  ReportsHead,
 } from "./CardioAnalysisElements";
 import { AiOutlineSelect } from "react-icons/ai";
-import { CgArrowsExpandRight } from "react-icons/cg";
-import { BiErrorAlt } from "react-icons/bi";
-import { BsFillArrowRightCircleFill, BsPen } from "react-icons/bs";
+import {  BsPen } from "react-icons/bs";
 import { TbZoomInArea, TbArrowBackUp } from "react-icons/tb";
 import Cookies from "js-cookie";
 import { AiOutlineCaretDown } from "react-icons/ai";
@@ -56,7 +43,6 @@ import {
   FaPlusCircle,
 } from "react-icons/fa";
 import Scroll from "../../../components/Scroll";
-import { LineChart_Lead2 } from "../../../components/Charts/CTA/LineChart_Lead2";
 
 // basic configuration of chart js and combine with react-chartjs-2
 ChartJS.register(
@@ -167,8 +153,8 @@ const CardioAnalysis = (props) => {
             <GraphsSection>
               <div className="container">
                 <div className="top-lines" style={{ gap: "50px" }}>
-                  <LineChart count={0} />
-                  <LineChart_Lead2 count={1} />
+                  <LineChart lead={1} />
+                  <LineChart lead={2} />
                 </div>
               </div>
             </GraphsSection>

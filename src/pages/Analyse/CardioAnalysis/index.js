@@ -12,9 +12,6 @@ import {
   LinksCont,
   GraphicalCont,
   GraphsSection,
-  ChartSection,
-  Yaxis,
-  YHeads,
   ChartCont,
   AbnormalitiesCont,
   ArchiveCont,
@@ -127,19 +124,10 @@ const CardioAnalysis = (props) => {
           </NavigationCont>
           <GraphicalCont>
             <GraphsSection>
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
-                /* <ChartSection> */
-                /* <Yaxis>
-                  <YHeads>0.4</YHeads>
-                  <YHeads>0.2</YHeads>
-                  <YHeads>0</YHeads>
-                  <YHeads>-0.2</YHeads>
-                  <YHeads>-0.4</YHeads>
-                </Yaxis> */
+              {[1, 2, 3, 4, 5, 6].map((_, index) => (
                 <ChartCont>
-                  <ECGChart width={300} height={70} />
+                  <ECGChart width={300} height={70} lead={index}/>
                 </ChartCont>
-                /* </ChartSection> */
               ))}
             </GraphsSection>
             <AbnormalitiesCont>

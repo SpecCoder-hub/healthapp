@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Grid from '../../../components/Charts/Images/Grid.png'
+import Grid from '../../../components/Charts/Images/Grid3.png'
 
 export const Main = styled.div `
     width: 100%;
@@ -92,7 +92,7 @@ export const GraphsSection = styled.div `
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 10px;
+    gap: 40px;
     justify-content: space-evenly;
     overflow: hidden;
     overflow-y: scroll;
@@ -141,15 +141,15 @@ export const YHeads = styled.h5 `
 
 export const ChartCont = styled.div `
     width: 345px;
-    height: 75px;
+    height: 275px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1e1f24;
     border-radius: 8px;
-    background : url(${Grid});
-    background-size: cover;
-    background-position: bottom;
+    // background : url(${Grid});
+    // background-size: cover;
+    // background-position: bottom;
 `
 
 export const AbnormalitiesCont = styled.div `

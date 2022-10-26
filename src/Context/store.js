@@ -4,6 +4,10 @@ const initialState = {
   data: [],
   lead1: [],
   lead2: [],
+  lead3: [],
+  avl: [],
+  avr: [],
+  avf: [],
 };
 
 const StoreContext = createContext({
