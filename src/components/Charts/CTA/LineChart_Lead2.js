@@ -5,13 +5,13 @@ import hampelFilter, { identifyOutliers } from "hampel-filter";
 import { useStore } from "../../../Context/store";
 import { chartOptions1, hampelOptions } from "../../../Context/constant";
 
-export function LineChart({ count }) {
+export function LineChart_Lead2({ count }) {
    const { state } = useStore();
   const chartComponentRef1 = useRef(null);
 
   useEffect(() => {
-    updateSeries(state.lead1);
-  }, [state.lead1]);
+    updateSeries(state.lead2);
+  }, [state.lead2]);
 
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;

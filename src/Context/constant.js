@@ -1,6 +1,6 @@
 export const hampelOptions = {
-  // windowHalfWidth: 1000,
-  threshold: 0.01,
+  // windowHalfWidth: 100,
+  // threshold: 0.3,
   // constantScaleFactor: 1,
 };
 

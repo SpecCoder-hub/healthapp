@@ -116,8 +116,8 @@ const LineChart = ({ count }) => {
   const chartComponentRef1 = useRef(null);
 
   useEffect(() => {
-    updateSeries(state.ecg);
-  }, [state.ecg]);
+    updateSeries(state.lead1);
+  }, [state.lead1]);
 
   const updateSeries = (data) => {
     const chart1 = chartComponentRef1.current?.chart;

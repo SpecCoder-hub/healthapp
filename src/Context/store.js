@@ -2,7 +2,8 @@ import React, { createContext, useContext, useReducer } from "react";
 
 const initialState = {
   data: [],
-  ecg: [],
+  lead1: [],
+  lead2: [],
 };
 
 const StoreContext = createContext({

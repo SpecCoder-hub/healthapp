@@ -60,7 +60,8 @@ const Scroll = () => {
             url: `${process.env.REACT_APP_MAIN_URL}/get_ecg?value=${value}`,
           })
           .then((res) => {
-            dispatch({ ecg: res.data, data: v1 });
+            console.log(res)
+            dispatch({ lead1: res.data.lead1, lead2: res.data.lead2, data: v1 });
           });
       });
   };

@@ -56,6 +56,7 @@ import {
   FaPlusCircle,
 } from "react-icons/fa";
 import Scroll from "../../../components/Scroll";
+import { LineChart_Lead2 } from "../../../components/Charts/CTA/LineChart_Lead2";
 
 // basic configuration of chart js and combine with react-chartjs-2
 ChartJS.register(
@@ -166,9 +167,8 @@ const CardioAnalysis = (props) => {
             <GraphsSection>
               <div className="container">
                 <div className="top-lines" style={{ gap: "50px" }}>
-                  {[1, 2].map((num) => (
-                    <LineChart key={num} count={num} />
-                  ))}
+                  <LineChart count={0} />
+                  <LineChart_Lead2 count={1} />
                 </div>
               </div>
             </GraphsSection>
