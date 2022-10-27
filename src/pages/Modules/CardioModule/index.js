@@ -1,5 +1,4 @@
 import React, { Suspense, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
 import {
   Main,
   StatCont,
@@ -27,7 +26,6 @@ import {
   ReportsFold,
   ReportsHead,
 } from "./CardioModuleElements";
-import { Canvas } from "@react-three/fiber";
 import Heart from "../Images/heart.png";
 import Coronary from "../Images/coronary.png";
 import { data } from "../../Data/Data";
